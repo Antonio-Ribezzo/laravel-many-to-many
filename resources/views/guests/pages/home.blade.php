@@ -12,7 +12,11 @@
                     <h2 class="card-title mb-3 text-center text-white">{{ $el->title }}</h2>
                     <h6 class="card-subtitle mb-2 text-body-secondary text-center">Project numero: {{ $key + 1}}</h6>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Type</span>:
+                        @if($el->type)
                             {{ $el->type->name_type }}
+                        @else
+                            none
+                        @endif
                     </h6>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Description</span>: {{ $el->description }}</h6>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Buyer</span>: {{ $el->buyer }}</h6>
