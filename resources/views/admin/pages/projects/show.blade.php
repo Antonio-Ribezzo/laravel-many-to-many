@@ -4,10 +4,18 @@
 <div class='container d-flex flex-column align-items-center justify-content-center mt-5 position-relative'>   
         {{-- @php dd($project) @endphp --}}
 
-        <div class="card p-3">
+        <div class="card p-3 mb-2">
             <img src="{{asset('storage/'. $project->cover_image)}}" class="card-img-top" alt="{{$project->title . 'cover'}}">
         </div>
-        <h2 class>{{ $project->title }}</h2>
+        <h2 class="mt-2 mb-0">{{ $project->title }}</h2>
+        {{-- technologies  --}}
+        @if($project->technologies)
+        <div class="my-2">
+            @foreach ($project->technologies as $el)
+                <span class="badge rounded-pill text-bg-light">{{ $el->name }}</span>        
+            @endforeach
+        </div>
+        @endif
         <p>{{ $project->description }}</p>
         <p>
             @if($project->type)

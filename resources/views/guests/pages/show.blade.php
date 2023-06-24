@@ -8,6 +8,14 @@
             <img src="{{asset('storage/'. $project->cover_image)}}" class="card-img-top" alt="{{$project->title . 'cover'}}">
         </div>
         <h2 class>{{ $project->title }}</h2>
+        {{-- technologies  --}}
+        @if($project->technologies)
+        <div class="mb-3">
+            @foreach ($project->technologies as $el)
+                <span class="badge rounded-pill text-bg-light">{{ $el->name }}</span>        
+            @endforeach
+        </div>
+        @endif
         <p>{{ $project->description }}</p>
         <p>
             @if($project->type)

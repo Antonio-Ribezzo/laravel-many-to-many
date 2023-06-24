@@ -10,7 +10,15 @@
                     <img src="{{asset('storage/'. $el->cover_image)}}" class="card-img-top" alt="{{$el->title . 'cover'}}">
                     <div class="card-body">
                         <h2 class="card-title mb-3 text-center text-white">{{ $el->title }}</h2>
-                        <h6 class="card-subtitle mb-2 text-body-secondary text-center">Project numero: {{ $key + 1}}</h6>
+                        {{-- technologies  --}}
+                        @if($el->technologies)
+                            <div class="my-3 text-center">
+                                @foreach ($el->technologies as $el)
+                                    <span class="badge rounded-pill text-bg-light">{{ $el->name }}</span>        
+                                @endforeach
+                            </div>
+                        @endif
+                        <h6 class="card-subtitle mt-0 mb-2 text-body-secondary text-center">Project numero: {{ $key + 1}}</h6>
                         <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Type</span>:
                         @if($el->type)
                             {{ $el->type->name_type }}
