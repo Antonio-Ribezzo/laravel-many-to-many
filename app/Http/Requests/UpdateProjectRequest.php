@@ -30,7 +30,6 @@ class UpdateProjectRequest extends FormRequest
             'buyer'=>'nullable',
             'cover_image'=>'nullable','image',
             'project_date'=>'nullable',
-            'programming_languages'=>'required',
             'link'=>'required'
         ];
     }

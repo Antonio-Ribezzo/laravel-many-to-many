@@ -58,13 +58,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    {{-- programming languages --}}
-                    <label for="programming_languages" class="form-label">Project programming_languages</label>
-                    <input type="text" class="form-control mb-4 @error('programming_languages') is-invalid @enderror" id="programming_languages" name="programming_languages" max="25">
-                    {{-- error --}}
-                    @error('programming_languages')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
 
                     {{-- project link --}}
                     <label for="link" class="form-label">Project Link</label>

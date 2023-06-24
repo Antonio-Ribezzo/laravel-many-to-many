@@ -20,7 +20,6 @@ class Project extends Model
         'buyer',
         'cover_image',
         'project_date',
-        'programming_languages',
         'link'
     ];
 

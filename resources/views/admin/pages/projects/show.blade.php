@@ -9,10 +9,15 @@
         </div>
         <h2 class>{{ $project->title }}</h2>
         <p>{{ $project->description }}</p>
-        <p>{{ $project->type->name_type }}</p>
+        <p>
+            @if($project->type)
+                {{ $project->type->name_type }}
+            @else
+                none
+            @endif
+        </p>
         <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Buyer</span>: {{ $project->buyer }}</h6>
-        <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Technologies</span>: {{ $project->programming_languages }}</h6>
-        <h6 class="card-subtitle mb-2 text-body-secondary"><span class="text-decoration-underline">Link</span>:<a href="{{$project->link}}" target="_blank" class="ms-1 card-link">Click here!</a></h6>
+        <h6 class="card-subtitle my-2 text-body-secondary"><span class="text-decoration-underline">Link</span>:<a href="{{$project->link}}" target="_blank" class="ms-1 card-link">Click here!</a></h6>
         <div class="d-flex mt-3">
             <a class="me-2 btn btn-outline-light" href="{{route('admin.project.edit',$project)}}">Edit Project</a>
             <form action="{{route('admin.project.destroy', $project)}}" method="POST">

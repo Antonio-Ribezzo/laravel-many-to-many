@@ -44,10 +44,6 @@
                     <label for="project_date" class="form-label">Project Date</label>
                     <input type="date" class="form-control mb-4" id="project_date" name="project_date" placeholder="Es: 2020-10-06" value="{{ old('project_date') ?? $project->project_date }}">
 
-                    {{-- programming languages --}}
-                    <label for="programming_languages" class="form-label">Project programming_languages</label>
-                    <input type="text" class="form-control mb-4 @error('programming_languages') is-invalid @enderror" id="programming_languages" name="programming_languages" max="25" value="{{ old('programming_languages') ?? $project->programming_languages }}">
-
                     {{-- project link --}}
                     <label for="link" class="form-label">Project Link</label>
                     <textarea class="form-control mb-4 @error('title') is-invalid @enderror" name="link" id="link" rows="3">{{ old('link') ?? $project->link }}</textarea>
