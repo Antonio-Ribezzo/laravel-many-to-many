@@ -32,6 +32,39 @@
                         @endforeach
                     </select>
 
+                    {{-- technologies --}}
+                    <div class="form-group my-3">
+                        {{-- checkbox  --}}
+                        @foreach($technologies as $el)
+                            <div class="form-check @error('technologies') is-invalid @enderror">
+                            @if( $errors->any() )
+                                {{-- se ci sono errori di validazione --}}
+                                <input  class="form-check-input"
+                                        type="checkbox"
+                                        name="technologies[]"
+                                        value="{{ $el->id }}"
+                                        id="tech-checkbox-{{ $el->id }}"
+                                        {{ in_array( $el->id, old( 'technologies', [])) ? 'checked' : ''}}
+                                >
+                            @else
+                                {{-- se non ci sono errori di validazione --}}
+                                <input  class="form-check-input"
+                                        type="checkbox"
+                                        name="technologies[]"
+                                        value="{{ $el->id }}"
+                                        id="tech-checkbox-{{ $el->id }}"
+                                        {{ ($project->technologies->contains($el)) ? 'checked' : ''}}
+                                >
+                            @endif
+                                <label class="form-check-label" for="tech-checkbox-{{ $el->id }}">{{ $el->name }}</label>
+                            </div>
+                        @endforeach
+
+                        @error('technologies')
+                            <div class="alert alert-danger">{{ message }}</div>
+                        @enderror
+                    </div>
+
                     {{-- project buyer --}}
                     <label for="buyer" class="form-label">Project buyer</label>
                     <input type="text" class="form-control mb-4 @error('buyer') is-invalid @enderror" id="buyer" name="buyer" max="25" value="{{ old('buyer') ?? $project->buyer }}">

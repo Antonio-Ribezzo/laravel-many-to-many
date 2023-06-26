@@ -34,6 +34,8 @@
                         @endforeach
                     </select>
 
+                   
+
                     {{-- project buyer --}}
                     <label for="buyer" class="form-label">Project buyer</label>
                     <input type="text" class="form-control mb-4 @error('buyer') is-invalid @enderror" id="buyer" name="buyer" max="25" >

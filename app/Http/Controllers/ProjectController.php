@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 //per la validazione
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-
+use App\Models\Technology;
 //richiamo l'altro Model
 use App\Models\Type;
 
@@ -36,7 +36,9 @@ class ProjectController extends Controller
     {
         $types= Type::all();
 
-        return view('admin.pages.projects.create', compact('types'));
+        $technologies= Technology::all();
+
+        return view('admin.pages.projects.create', compact('types','technologies'));
     }
 
     /**
@@ -86,7 +88,9 @@ class ProjectController extends Controller
     {
         $types= Type::all();
 
-        return view('admin.pages.projects.edit', compact('project','types'));
+        $technologies= Technology::all();
+
+        return view('admin.pages.projects.edit', compact('project','types', 'technologies'));
     }
 
     /**
@@ -116,6 +120,11 @@ class ProjectController extends Controller
         }
 
         $project->update($form_data);
+
+        // controllo technologies aggiornate
+        if( $request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }
 
         return redirect()->route('admin.project.show', $project);
     }
