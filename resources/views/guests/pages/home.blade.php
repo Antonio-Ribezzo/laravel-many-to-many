@@ -5,7 +5,7 @@
     @foreach ($projects as $key=>$el)
         {{-- @php dd($el) @endphp --}}
 
-            <div class="card-index card p-3 mx-2 mb-5" style="width:calc(95% / 2);">
+            <div class="card-index card p-3 mx-2 mb-5" style="width:calc(95% / 2);  height: 35rem">
                 <a href="{{ route('portfolio.show',$el) }}" style="text-decoration:none;">
                     <img src="{{asset('storage/'. $el->cover_image)}}" class="card-img-top" alt="{{$el->title . 'cover'}}">
                     <div class="card-body">
