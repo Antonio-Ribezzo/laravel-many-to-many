@@ -30,7 +30,8 @@ class StoreProjectRequest extends FormRequest
             'buyer'=>'nullable',
             'cover_image'=>'nullable','image',
             'project_date'=>'nullable',
-            'link'=>'required'
+            'link'=>'required',
+            'technologies'=>'exists:technologies,id'
         ];
     }
 }

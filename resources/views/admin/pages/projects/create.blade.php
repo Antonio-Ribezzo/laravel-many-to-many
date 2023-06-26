@@ -34,7 +34,21 @@
                         @endforeach
                     </select>
 
-                   
+                    {{-- technologies --}}
+                    <div class="form-group my-3">
+                        {{-- checkbox  --}}
+                        @foreach($technologies as $el)
+                            <div class="form-check">
+                                <input  class="form-check-input"
+                                        type="checkbox"
+                                        name="technologies[]"
+                                        value="{{ $el->id }}"
+                                        id="tech-checkbox-{{ $el->id }}"
+                                >
+                                <label class="form-check-label" for="tech-checkbox-{{ $el->id }}">{{ $el->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
 
                     {{-- project buyer --}}
                     <label for="buyer" class="form-label">Project buyer</label>

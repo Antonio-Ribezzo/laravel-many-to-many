@@ -60,9 +60,14 @@ class ProjectController extends Controller
             $form_data['cover_image']= $path;
         }
 
-        $newProject->fill($form_data);
+        $newProject = Project::create($form_data);
+
+        // controllo checked technologies
+        if($request->has('technologies')){
+            $newProject->technologies()->attach($request->technologies);
+        }
         // dd($newProject);
-        $newProject->save();
+        // $newProject->save();
 
         return redirect()->route('admin.project.index');
     }
